@@ -10,3 +10,4 @@ folium
 IPython
 streamlit
 streamlit_folium
+plotly
