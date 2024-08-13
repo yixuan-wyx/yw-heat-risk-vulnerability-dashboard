@@ -1,0 +1,104 @@
+2024_VARIABLE_NAME,2024_DESCRIPTION,MODULE,DATA_SOURCE,2024_TABLE_FIELD_CALCULATION,CALCULATION_DESCRIPTION,NOTES,weighted_2024_VARIABLE_NAME
+STATEFP10,State-level FIPS code,NO VALUE,NO VALUE,NO VALUE,NO VALUE,NO VALUE,weighted_STATEFP10
+STATE,State name,NO VALUE,NO VALUE,NO VALUE,NO VALUE,NO VALUE,weighted_STATE
+STATE_ABV,State abbreviation,NO VALUE,NO VALUE,NO VALUE,NO VALUE,NO VALUE,weighted_STATE_ABV
+ZCTA,ZIP Code Tabulation Area code,NO VALUE,NO VALUE,NO VALUE,NO VALUE,NO VALUE,weighted_ZCTA
+GEOID10,Unique ID combination of State FIPS and ZCTA code,NO VALUE,NO VALUE,NO VALUE,NO VALUE,NO VALUE,weighted_GEOID10
+MULTI_STATE,Indicator of whether a ZCTA spans multiple states,NO VALUE,NO VALUE,NO VALUE,NO VALUE,"A value of ""0"" in this field indicates that a ZCTA does not span multiple states. A value of ""1"" in this field indicates that a ZCTA does span multiple states.",weighted_MULTI_STATE
+POP,"Population estimate, 2015-2019 ACS",NO VALUE,U.S. Census Bureau 5-year ACS 2015-2019,S0601_C01_001E,NO VALUE,NO VALUE,weighted_POP
+PR_HRI,Percentile rank of heat-related EMS activation reported to NEMSIS,Historical Heat and Health Burden,NEMSIS,NO VALUE,NO VALUE,"NEMSIS does not share raw data. Therefore, only the percentile rank indicator is available.",weighted_PR_HRI
+F_HRI,Percentile rank assigned a quartile value of 1 to 4,Historical Heat and Health Burden,HHI,NO VALUE,NO VALUE,NO VALUE,weighted_F_HRI
+LOW_EMS,ZCTA with 10 or fewer EMS activations for 2+ years of data are denoted with a value of 1 those with greater than 10 EMS activations in 2+ year of data are denoted with a value of 0,Historical Heat and Health Burden,NEMSIS,NO VALUE,NO VALUE,NO VALUE,weighted_LOW_EMS
+P_NEHD,Number of extreme heat days,Historical Heat and Health Burden,NLDAS-2 from the Tracking Network,NO VALUE,Number of days above the 95% of temperatures per ZCTA,NO VALUE,weighted_P_NEHD
+PR_NEHD,Percentile rank of number of extreme heat days,Historical Heat and Health Burden,HHI,In R: using the dplyr percent_rank() function on P_NEHD,NO VALUE,NO VALUE,weighted_PR_NEHD
+HHB_SCORE,Average of percentile ranked historical heat and health burden indicators ,Historical Heat and Health Burden,HHI,"(PR_NEHD +
+PR_HRI)/n",Where n is the number of non-missing indicators in the module per ZCTA,NO VALUE,weighted_HHB_SCORE
+HHB_RANK,Percentile rank of averaged historical heat and health burden indicators (HHB_SCORE),Historical Heat and Health Burden,HHI,In R: using the dplyr percent_rank() function on HHB_SCORE,NO VALUE,NO VALUE,weighted_HHB_RANK
+P_CHD,Crude prevalence of persons (age 18+) with Coronary Heart Disease (CHD),Sensitivity,CDC PLACES 2023 and 2022 release,Crude prevalence of coronary heart disease among adults aged >= 18 years ,NO VALUE,"Florida did not have data from the PLACES 2023 release. Therefore, data from the 2022 release were used where 2023 data were unavailable.",weighted_P_CHD
+PR_CHD,Percentile rank of crude prevalence of persons (age 18+) with Coronary Heart Disease (CHD),Sensitivity,HHI,In R: using the dplyr percent_rank() function on P_CHD,NO VALUE,NO VALUE,weighted_PR_CHD
+F_CHD,Flag indicating ZCTA with >= 0.6666 percentile rank for CHD 1 or 0 if not ,Sensitivity,HHI,"In R: ifelse(HHI$PR_CHD>= 0.6666,1,0)",NO VALUE,NO VALUE,weighted_F_CHD
+P_OBS,Crude prevalence of persons (age 18+) with Obesity,Sensitivity,CDC PLACES 2023 and 2022 release,Crude prevalence of obesity among adults aged ≥18 years,NO VALUE,"Florida did not have data from the PLACES 2023 release. Therefore, data from the 2022 release were used where 2023 data were unavailable.",weighted_P_OBS
+PR_OBS,Percentile rank of crude prevalence of persons (age 18+) with Obesity,Sensitivity,HHI,In R: using the dplyr percent_rank() function on P_OBS,NO VALUE,NO VALUE,weighted_PR_OBS
+F_OBS,Flag indicating ZCTA with >= 0.6666 percentile rank for Obesity 1 or 0 if not ,Sensitivity,HHI,"In R: ifelse(HHI$PR_OBS>= 0.6666,1,0)",NO VALUE,NO VALUE,weighted_F_OBS
+P_DIABETES,Crude prevalence of persons (age 18+) with Diabetes,Sensitivity,CDC PLACES 2023 and 2022 release,Crude prevalence of diagnosed diabetes among adults aged ≥18 years,NO VALUE,"Florida did not have data from the PLACES 2023 release. Therefore, data from the 2022 release were used where 2023 data were unavailable.",weighted_P_DIABETES
+PR_DIABETES,Percentile rank of crude prevalence of persons (age 18+) with Diabetes,Sensitivity,HHI,In R: using the dplyr percent_rank() function on P_DIABETES,NO VALUE,NO VALUE,weighted_PR_DIABETES
+F_DIABETES,Flag indicating ZCTA with >= 0.6666 percentile rank for Diabetes 1 or 0 if not ,Sensitivity,HHI,"In R: ifelse(HHI$PR_DIABETES>= 0.6666,1,0)",NO VALUE,NO VALUE,weighted_F_DIABETES
+P_COPD,Crude prevalence of persons (age 18+) with Chronic Obstructive Pulmonary Disease (COPD),Sensitivity,CDC PLACES 2023 and 2022 release,Crude prevalence of chronic obstructive pulmonary disease among adults aged ≥18 years,NO VALUE,"Florida did not have data from the PLACES 2023 release. Therefore, data from the 2022 release were used where 2023 data were unavailable.",weighted_P_COPD
+PR_COPD,Percentile rank of crude prevalence of persons (age 18+) with Chronic Obstructive Pulmonary Disease (COPD),Sensitivity,HHI,In R: using the dplyr percent_rank() function on P_COPD,NO VALUE,NO VALUE,weighted_PR_COPD
+F_COPD,Flag indicating ZCTA with >= 0.6666 percentile rank for COPD 1 or 0 if not ,Sensitivity,HHI,"In R: ifelse(HHI$PR_COPD>= 0.6666,1,0)",NO VALUE,NO VALUE,weighted_F_COPD
+P_ASTHMA,Crude prevalence of persons (age 18+) with current asthma,Sensitivity,CDC PLACES 2023 and 2022 release,Crude prevalence of current asthma prevalence among adults aged ≥18 years,NO VALUE,"Florida did not have data from the PLACES 2023 release. Therefore, data from the 2022 release were used where 2023 data were unavailable.",weighted_P_ASTHMA
+PR_ASTHMA,Percentile rank of crude prevalence of persons (age 18+) with current asthma,Sensitivity,HHI,In R: using the dplyr percent_rank() function on P_ASTHMA,NO VALUE,NO VALUE,weighted_PR_ASTHMA
+F_ASTHMA,Flag indicating ZCTA with >= 0.6666 percentile rank for Asthma 1 or 0 if not ,Sensitivity,HHI,"In R: ifelse(HHI$PR_ASTHMA>= 0.6666,1,0)",NO VALUE,NO VALUE,weighted_F_ASTHMA
+P_MNTLH,Crude prevalence of persons (age 18+) reporting “not good” mental health for >= 14 days,Sensitivity,CDC PLACES 2023 and 2022 release,Crude prevalence of mental health not good for ≥14 days among adults aged ≥18 years,NO VALUE,"Florida did not have data from the PLACES 2023 release. Therefore, data from the 2022 release were used where 2023 data were unavailable.",weighted_P_MNTLH
+PR_MNTLH,Percentile rank of crude prevalence of persons (age 18+) reporting “not good” mental health for >= 14 days,Sensitivity,HHI,In R: using the dplyr percent_rank() function on P_MNTLH,NO VALUE,NO VALUE,weighted_PR_MNTLH
+F_MNTLH,Flag indicating ZCTA with >= 0.6666 percentile rank for mental health 1 or 0 if not ,Sensitivity,HHI,"In R: ifelse(HHI$PR_MNTLH>= 0.6666,1,0)",NO VALUE,NO VALUE,weighted_F_MNTLH
+F_SEN_COUNT,Sum of flagged indicators for sensitivity module,Sensitivity,HHI,"F_CHD +
+F_OBS + 
+F_DIABETES + 
+F_COPD +
+F_ASTHMA +
+F_MNTLH",NO VALUE,NO VALUE,weighted_F_SEN_COUNT
+SEN_SCORE,Average of flagged sensitivity indicators ,Sensitivity,HHI,F_SEN_COUNT * 1/6,The sum of flagged indicators is multiplied by a constant of 1/6 in order to calculate an average flagged score,NO VALUE,weighted_SEN_SCORE
+SEN_RANK,Percentile rank of averaged sensitivity indicators (SEN_SCORE),Sensitivity,HHI,In R: using the dplyr percent_rank() function on SEN_SCORE,NO VALUE,NO VALUE,weighted_SEN_RANK
+P_UNINSUR,"Percentage uninsured in the total civilian noninstitutionalized population estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,S2701_C05_001E,NO VALUE,NO VALUE,weighted_P_UNINSUR
+PR_UNINSUR,Percentile rank of percent uninsured estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_UNINSUR,NO VALUE,NO VALUE,weighted_PR_UNINSUR
+P_POV,Percentage of persons below 150% poverty estimate,Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,(POV / S1701_C01_001E) * 100,(Persons below 150% poverty level estimate / Population for whom poverty status is determined estimate) * 100,NO VALUE,weighted_P_POV
+PR_POV,Percentile rank of percent of persons below 150% poverty estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_POV,NO VALUE,NO VALUE,weighted_PR_POV
+P_UNEMP,"Unemployment Rate estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,DP03_0009PE,NO VALUE,The ACS calculated Unemployment Rate = E_UNEMP/civilian population age 16+ in the labor force.,weighted_P_UNEMP
+PR_UNEMP,Percentile rank of percent of civilian (age 16+) unemployed estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_UNEMP,NO VALUE,NO VALUE,weighted_PR_UNEMP
+P_NOHSDP,Percentage of persons with no high school diploma (age 25+) estimate,Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,S0601_C01_033E,NO VALUE,NO VALUE,weighted_P_NOHSDP
+PR_NOHSDP,Percentile rank of percent of persons with no high school diploma (age 25+) estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_NOHSDP,NO VALUE,NO VALUE,weighted_PR_NOHSDP
+P_ISO,"Percentage of persons (age 18+) living alone estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,(ISO / B09021_001E) * 100,(Persons (age 18+) living alone estimate / Persons (age 18+) for whom living arrangement status is determined estimate) * 100,NO VALUE,weighted_P_ISO
+PR_ISO,Percentile rank of percent of persons (age 18+) living alone estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_ISO,NO VALUE,NO VALUE,weighted_PR_ISO
+P_ELP,"Percentage of persons (age 5+) who speak English ""less than well"" estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,((B16005_007E + B16005_008E + B16005_012E + B16005_013E + B16005_017E + B16005_018E + B16005_022E + B16005_023E + B16005_029E + B16005_030E + B16005_034E + B16005_035E + B16005_039E + B16005_040E + B16005_044E + B16005_045E) / B16005_001E) * 100,"(Estimate; Native: - Speak Spanish: - Speak English ""not well"" + Estimate; Native: - Speak Spanish: - Speak English ""not at all"" + Estimate; Native: - Speak other Indo-European languages: - Speak English ""not well"" + Estimate; Native: - Speak other Indo-European languages: - Speak English ""not at all"" + Estimate; Native: - Speak Asian and Pacific Island languages: - Speak English ""not well"" + Estimate; Native: - Speak Asian and Pacific Island languages: - Speak English ""not at all"" + Estimate; Native: - Speak other languages: - Speak English ""not well"" + Estimate; Native: - Speak other languages: - Speak English ""not at all"" + Estimate; Foreign born: - Speak Spanish: - Speak English ""not well"" + Estimate; Foreign born: - Speak Spanish: - Speak English ""not at all"" + Estimate; Foreign born: - Speak other Indo-European languages: - Speak English ""not well"" + Estimate; Foreign born: - Speak other Indo-European languages: - Speak English ""not at all"" + Estimate; Foreign born: - Speak Asian and Pacific Island languages: - Speak English ""not well"" + Estimate; Foreign born: - Speak Asian and Pacific Island languages: - Speak English ""not at all"" + Estimate; Foreign born: - Speak other languages: - Speak English ""not well"" + Estimate; Foreign born: - Speak other languages: - Speak English ""not at all"" / Population age 5 and over estimate) * 100",NO VALUE,weighted_P_ELP
+PR_ELP,"Percentile rank of percent of persons (age 5+) who speak English ""less than well"" estimate",Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_ELP,NO VALUE,NO VALUE,weighted_PR_ELP
+P_DISABL,"Percentage of civilian noninstitutionalized population with a disability estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,DP02_0072PE,NO VALUE,NO VALUE,weighted_P_DISABL
+PR_DISABL,Percentile rank of percent of civilian noninstitutionalized population with a disability estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_DISABL,NO VALUE,NO VALUE,weighted_PR_DISABL
+P_ODW,"Percent civilian employed population (age 16+) employed in natural resources, construction, and maintenance occupations estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,(ODW / S2401_C01_001E) * 100,"(Persons (age 16+) with a natural resources, construction, or maintenance occupations estimate / Civilian employed population 16 years and over estimate) * 100",NO VALUE,weighted_P_ODW
+PR_ODW,"Percentile rank of percent of civilian employed population (age 16+) employed in natural resources, construction, and maintenance occupations estimate",Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_ODW,NO VALUE,NO VALUE,weighted_PR_ODW
+P_AGE65,"Percentage of persons aged 65 and older estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,S0101_C02_030E,NO VALUE,NO VALUE,weighted_P_AGE65
+PR_AGE65,Percentile rank of percent of persons aged 65 and older estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_AGE65,NO VALUE,NO VALUE,weighted_PR_AGE65
+P_AGE5,"Percent persons under 5 years estimate, 2015-2019 ACS",Sociodemographic,U.S. Census Bureau 5-year ACS 2015-2019,S0101_C02_002E,NO VALUE,NO VALUE,weighted_P_AGE5
+PR_AGE5,Percentile rank of percent of persons under 5 years estimate,Sociodemographic,HHI,In R: using the dplyr percent_rank() function on P_AGE5,NO VALUE,NO VALUE,weighted_PR_AGE5
+SOCIODEM_SCORE,Average of percentile ranked sociodemographic indicators,Sociodemographic,HHI,"(PR_UNINSUR + 
+PR_POV + 
+PR_UNEMP + 
+PR_NOHSDP + 
+PR_HBURD + 
+PR_CROWD + 
+PR_ISO + 
+PR_ELP + 
+PR_DISABL + 
+PR_ODW + 
+RP_AGE65 + 
+PR_AGE5)/n",Where n is the number of non-missing indicators in the module per ZCTA.,NO VALUE,weighted_SOCIODEM_SCORE
+SOCIODEM_RANK,Percentile rank of averaged sociodemographic indicators (SOCIODEM_SCORE),Sociodemographic,HHI,In R: using the dplyr percent_rank() function on SOCIODEM_SCORE,NO VALUE,NO VALUE,weighted_SOCIODEM_RANK
+P_IMPERV,Percent of ZCTA covered with an impervious surface,NO VALUEtural and Built Environment,Calculated from National Land Cover Database,NO VALUE,NO VALUE,NO VALUE,weighted_P_IMPERV
+PR_IMPERV,Percentile rank of percent of ZCTA covered with an impervious surface,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_IMPERV,NO VALUE,NO VALUE,weighted_PR_IMPERV
+P_TREEC,Percent of ZCTA with tree canopy cover,NO VALUEtural and Built Environment,Calculated from U.S. Forest Service Tree Canopy Cover Dataset,NO VALUE,NO VALUE,NO VALUE,weighted_P_TREEC
+PR_TREEC,Percentile rank of percent of ZCTA with tree canopy cover,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_TREEC,NO VALUE,NO VALUE,weighted_PR_TREEC
+P_NOVEH,"Percentage of households with no vehicle available estimate, 2015-2019 ACS",NO VALUEtural and Built Environment,U.S. Census Bureau 5-year ACS 2015-2019,DP04_0058PE,NO VALUE,NO VALUE,weighted_P_NOVEH
+PR_NOVEH,Percentile rank of percent of households with no vehicle available estimate,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_NOVEH,NO VALUE,NO VALUE,weighted_PR_NOVEH
+P_MOBILE,"Percentage of mobile homes estimate, 2015-2019 ACS",NO VALUEtural and Built Environment,U.S. Census Bureau 5-year ACS 2015-2019,DP04_0014PE,NO VALUE,NO VALUE,weighted_P_MOBILE
+PR_MOBILE,Percentile rank of percent of mobile homes estimate,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_MOBILE,NO VALUE,NO VALUE,weighted_PR_MOBILE
+P_RENT,"Percent of renter occupied housing units estimate, 2015-2019 ACS",NO VALUEtural and Built Environment,U.S. Census Bureau 5-year ACS 2015-2019,(RENT/ S2502_C01_001E) * 100,(Renter occupied housing units estimate / Occupied housing units) * 100,NO VALUE,weighted_P_RENT
+PR_RENT,Percentile rank of percent of renter occupied housing units estimate,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_RENT,NO VALUE,NO VALUE,weighted_PR_RENT
+P_OZONE,"Annual mean days above O3 regulatory standard 
+- 3-year average",NO VALUE,U.S. EPA Air Quality System (AQS) 2018-2020,NO VALUE,NO VALUE,NO VALUE,weighted_P_OZONE
+PR_OZONE,Percentile rank of annual mean days above O3 regulatory standard - 3-year average,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_OZONE,NO VALUE,NO VALUE,weighted_PR_OZONE
+P_PM25,Annual mean days above PM2.5 regulatory standard - 3-year average,NO VALUEtural and Built Environment,U.S. EPA Air Quality System (AQS) 2018-2020,NO VALUE,NO VALUE,NO VALUE,weighted_P_PM25
+PR_PM25,Percentile rank of annual mean days above PM2.5 regulatory standard - 3-year average,NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on P_PM25,NO VALUE,NO VALUE,weighted_PR_PM25
+NBE_SCORE,Average of percentile ranked natural and built environment indicators,NO VALUEtural and Built Environment,HHI,"(PR_IMPERV +
+PR_TREEC +
+PR_LNDCOV +
+PR_NOVEH +
+PR_MOBILE +
+PR_RENT +
+PR_OZONE +
+PR_PM25)/n",Where n is the number of non-missing indicators in the module per ZCTA.,NO VALUE,weighted_NBE_SCORE
+NBE_RANK,Percentile rank of averaged natural and built environment indicators (NBE_SCORE),NO VALUEtural and Built Environment,HHI,In R: using the dplyr percent_rank() function on NBE_SCORE,NO VALUE,NO VALUE,weighted_NBE_RANK
+OVERALL_SCORE,Sum of percentile ranked modules,NO VALUE,HHI,"(HHB_RANK  + 
+SEN_RANK + 
+SOCIODEM_RANK + 
+NBE_RANK)/n",Where n is the number of non-missing indicators in the module per ZCTA.,NO VALUE,weighted_OVERALL_SCORE
+OVERALL_RANK,Overall percentile ranking,NO VALUE,HHI,In R: using the dplyr percent_rank() function on OVERALL_SCORE,NO VALUE,NO VALUE,weighted_OVERALL_RANK
